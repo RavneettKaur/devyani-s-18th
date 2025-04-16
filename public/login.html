@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login Page</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #ffd1dc 0%, #f9c5d1 120%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      animation: fadeIn 1s ease-in;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .login-container {
+      background: white;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+      width: 350px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    .login-container:hover { transform: scale(1.02); }
+
+    h2 { margin-bottom: 25px; color: #333; }
+    input {
+      margin-bottom: 15px;
+      padding: 12px 15px;
+      width: 100%;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+    input:focus {
+      border-color: #66a6ff;
+      box-shadow: 0 0 5px rgba(102, 166, 255, 0.5);
+      outline: none;
+    }
+    .hint {
+      font-size: 12px;
+      color: #888;
+      margin-bottom: 15px;
+    }
+    button {
+      padding: 12px;
+      width: 100%;
+      background: linear-gradient(to right, #e898a4, #f78da7);
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background: linear-gradient(to right, #ffd1dc, #f9c5d1);
+    }
+    #message {
+      margin-top: 15px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="login-container">
+  <h2>🎉 Celebrating YOU!</h2>
+  <form id="loginForm">
+    <input type="text" id="username" placeholder="Username" required>
+    
+    <input type="password" id="password" placeholder="Password" required>
+    <div class="hint">Hint: Your first nickname (by me) ;) </div>
+
+    <input type="number" id="age" placeholder="Your Age" required>
+
+    <button type="submit">Login</button>
+  </form>
+  <p id="message"></p>
+</div>
+
+<script>
+  const form = document.getElementById('loginForm');
+  const message = document.getElementById('message');
+
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const age = parseInt(document.getElementById('age').value);
+    const password = document.getElementById('password').value;
+
+    if (age !== 18) {
+      message.style.color = "red";
+      message.textContent = "Oops! Only the fabulous 18-year-olds get to log in!";
+    } else if (password !== "bunny") {
+      message.style.color = "red";
+      message.textContent = "Incorrect password! Hint's right there ";
+    } else {
+      message.style.color = "green";
+      message.textContent = "🎉 Ah, the magical 18 — you made it! Access granted!";
+
+      // Store login status
+      localStorage.setItem('isLoggedIn', 'true');
+
+      // Redirect to landing page after 2 seconds
+      setTimeout(() => {
+        window.location.href = "index.html";
+      }, 2000);
+    }
+  });
+</script>
+
+</body>
+</html>

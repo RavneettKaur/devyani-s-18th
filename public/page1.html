@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For You</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #ffd1dc 0%, #f9c5d1 120%);
+      text-align: center;
+    }
+
+    .message-box {
+      background: white;
+      padding: 60px 40px;
+      border-radius: 20px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+      max-width: 600px;
+      margin: 50px auto 30px;
+      animation: fadeIn 2s ease forwards;
+      opacity: 0;
+    }
+
+    .message-box h1 {
+      font-size: 38px;
+      color: #e05573;
+      margin-bottom: 20px;
+    }
+
+    .message-box p {
+      font-size: 22px;
+      color: #555;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .cards-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto 50px;
+    }
+
+    .card {
+      width: 250px;  /* Increased width */
+      height: 170px; /* Increased height */
+      margin: 10px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #e05573;
+      font-size: 20px;
+      font-weight: bold;
+      position: relative;
+      transition: transform 0.8s ease, transform 0.4s ease-in-out;
+      perspective: 1000px;
+    }
+
+    .card-inner {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      transform-style: preserve-3d;
+      transition: transform 0.8s;
+    }
+
+    .card-front, .card-back {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      backface-visibility: hidden;
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card-front {
+      background: #ffe4ec;
+    }
+
+    .card-back {
+      background: #f8b7c7;
+      transform: rotateY(180deg);
+    }
+
+    .card:hover {
+      cursor: pointer;
+      transform: scale(1.1); /* Soft zoom in effect */
+    }
+
+    .card:hover .card-inner {
+      transform: rotateY(180deg);
+    }
+
+    /* Style for the Letter Section */
+.letter-container {
+  background: white;
+  padding: 30px;
+  max-width: 800px;
+  margin: 30px auto;
+  border-radius: 15px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+  opacity: 0;
+  animation: fadeInLetter 2s ease forwards;
+}
+
+.letter-container h2 {
+  font-size: 36px;
+  color: #e05573;
+  margin-bottom: 20px;
+}
+
+.letter-container p {
+  font-size: 18px;
+  color: #555;
+  line-height: 1.6;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+@keyframes fadeInLetter {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+  </style>
+</head>
+<body>
+
+<div class="message-box">
+  <h1>18 things i love about you. ♡</h1>
+  <!-- <p>Because you’ve made every moment magical for me.</p> -->
+</div>
+
+<div class="cards-container">
+
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="card-front">
+        one &lt;3
+      </div>
+      <div class="card-back">
+        YOU.
+      </div>
+    </div>
+  </div>
+
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="card-front">
+        two &lt;3
+      </div>
+      <div class="card-back">
+        Your yapping skills. Don't ever stop.
+      </div>
+    </div>
+  </div>
+
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="card-front">
+        three &lt;3
+      </div>
+      <div class="card-back">
+        Your hair, who wouldn't love it?
+      </div>
+    </div>
+  </div>
+
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="card-front">
+        four &lt;3
+      </div>
+      <div class="card-back">
+        Your style!
+      </div>
+    </div>
+  </div>
+
+
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="card-front">
+        five &lt;3
+      </div>
+      <div class="card-back">
+        Your ability to light up everything around you.
+      </div>
+    </div>
+  </div>
+
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="card-front">
+        six &lt;3
+      </div>
+      <div class="card-back">
+        Your silly and cute faces.
+      </div>
+    </div>
+  </div>
+
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="card-front">
+        seven &lt;3
+      </div>
+      <div class="card-back">
+        Your vibee!
+      </div>
+    </div>
+  </div>
+
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="card-front">
+        eight &lt;3
+      </div>
+      <div class="card-back">
+        Your random video calls.
+      </div>
+    </div>
+  </div>
+
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="card-front">
+        nine &lt;3
+      </div>
+      <div class="card-back">
+        Your voice notes.
+      </div>
+    </div>
+  </div>
+
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="card-front">
+        ten &lt;3
+      </div>
+      <div class="card-back">
+        When you call me during your cab rides. Love!
+      </div>
+    </div>
+  </div>
+
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="card-front">
+        eleven &lt;3
+      </div>
+      <div class="card-back">
+        Your voice when you sing.
+      </div>
+    </div>
+  </div>
+
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="card-front">
+        twelve &lt;3
+      </div>
+      <div class="card-back">
+        Your oh so pretty eyes.
+      </div>
+    </div>
+  </div>
+
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="card-front">
+        thirteen &lt;3
+      </div>
+      <div class="card-back">
+        The way you call me "meri neet".
+      </div>
+    </div>
+  </div>
+
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="card-front">
+        fourteen &lt;3
+      </div>
+      <div class="card-back">
+        Your smile. And that adorable little dimple.
+      </div>
+    </div>
+  </div>
+
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="card-front">
+        fifteen &lt;3
+      </div>
+      <div class="card-back">
+        Your jealousy, i guess? :D
+      </div>
+    </div>
+  </div>
+
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="card-front">
+        sixteen &lt;3
+      </div>
+      <div class="card-back">
+        Your stupid little brain.
+      </div>
+    </div>
+  </div>
+
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="card-front">
+        seventeen &lt;3
+      </div>
+      <div class="card-back">
+        You when you are you.
+      </div>
+    </div>
+  </div>
+
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="card-front">
+        eighteen &lt;3
+      </div>
+      <div class="card-back">
+        Every shade of you.
+      </div>
+    </div>
+  </div>
+  
+</div>
+
+<!-- Letter Section -->
+<div class="letter-container">
+  <h2>&lt;3</h2>
+  <p>
+    Happiest birthday, meri jaan!! Big love and a lot of hugs and kisses to you. I hope you know just how much you mean to me and how much I love and appreciate your pretty little existence. You make living a lot easier with each passing day. My peace in the chaos—or maybe even my chaos? Heh. And if only I were a poet, I could have described you the way they do, but for me, you are the sun and the way the moon lights up by it. Maybe I am the moon being lit up by your warmth, or maybe I am just a sunflower in a pretty little field needing you to bloom. Knowing you feels like I have watched that sunset on a beach, roamed around in fields full of dandelions, and like I said, it is an honor, a privilege to know you and get to cherish the woman that you are. Thank you for always being you and only you. I love you, my love. ♡ 
+    
+  </p>
+</div>
+
+<script>
+  function flipCard(card) {
+    const inner = card.querySelector(".card-inner");
+    inner.style.transform = inner.style.transform === "rotateY(180deg)" ? "rotateY(0)" : "rotateY(180deg)";
+  }
+</script>
+
+</body>
+</html>

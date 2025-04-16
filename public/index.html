@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Welcome Page</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #ffd1dc 0%, #f9c5d1 120%);
+      color: #333;
+      text-align: center;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .greeting-card {
+      background: white;
+      padding: 50px 40px;
+      border-radius: 20px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+      display: inline-block;
+      max-width: 600px;
+      opacity: 0;
+      animation: fadeIn 2s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    .greeting-card h1 {
+      font-size: 36px;
+      margin-bottom: 15px;
+      color: #e05573;
+    }
+
+    .greeting-card p {
+      font-size: 18px;
+      margin-bottom: 30px;
+      line-height: 1.4;
+    }
+
+    .greeting-card button {
+      padding: 12px 25px;
+      background: linear-gradient(to right, #e898a4, #f78da7);
+      border: none;
+      color: white;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .greeting-card button:hover {
+      background: linear-gradient(to right, #ffd1dc, #f9c5d1);
+      color: #e05573;
+    }
+
+    /* Soft Hearts */
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: #ff4e78;
+      transform: rotate(45deg);
+      opacity: 0;
+      animation: fadeHeart 4s ease-in-out infinite;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: #ff4e78;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      top: 0;
+      left: -10px;
+    }
+
+    @keyframes fadeHeart {
+      0%   { opacity: 0; transform: scale(0.8) rotate(45deg); }
+      50%  { opacity: 0.8; transform: scale(1.2) rotate(45deg); }
+      100% { opacity: 0; transform: scale(0.8) rotate(45deg); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="greeting-card">
+    <h1>🎉 Happy Birthday, Sunshinee! </h1>
+    <p>Here’s a little something for my special one — hoping it brightens your day just like you’ve been lighting up mine for the past 4+ years!</p>
+    
+    <button onclick="openSidebar()">Tap here for love &lt;3</button>
+    <br><br>
+    <button onclick="goBackToLogin()" style="background: #e05573;">Go Back to Login</button>
+  </div>
+  <script>
+
+  // Check if the user is logged in
+  if (!localStorage.getItem('isLoggedIn')) {
+    window.location.href = "login.html";
+  }
+
+  // Soft Hearts Generator
+  function createHeart() {
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.top = Math.random() * 100 + "vh";
+    heart.style.animationDuration = (3 + Math.random() * 2) + "s";
+    heart.style.animationDelay = Math.random() * 2 + "s";
+    const scale = 0.5 + Math.random() * 1.2;
+    heart.style.transform = `scale(${scale}) rotate(45deg)`;
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+      heart.remove();
+    }, 5000);
+  }
+
+  setInterval(createHeart, 500);
+
+  // Redirect to page1.html function
+  function openSidebar() {
+    window.location.href = "page1.html";
+  }
+
+  function goBackToLogin() {
+  localStorage.removeItem('isLoggedIn');  // Clear login status
+  window.location.href = "login.html";    // Go to login page
+}
+
+</script>
+
+</body>
+</html>
